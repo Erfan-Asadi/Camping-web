@@ -19,6 +19,9 @@ a {
   border-radius: 0 0 160px 160px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
 }
 
 .landing-page::after {
@@ -70,9 +73,8 @@ a {
 }
 
 .main-title {
-  margin: 0 auto;
   max-width: 460px;
-  transform: translateY(50%);
+  margin-bottom: 4rem;
 }
 .main-title h1 {
   font-size: 64px;
@@ -268,14 +270,13 @@ span.destination-price {
 .contactUs-form {
   width: 55%;
   color: #3B3735;
-  margin: 2rem 2.4rem;
+  margin: 2rem 0 2rem 2.4rem ;
 }
 .contactUs-form h2 {
   font-size: 2rem;
   font-family: 'Archivo',sans-serif;
   margin-bottom: .7rem;
   font-weight: 900;
-
 }
 .contactUs-form p {
   font-family: 'Roboto';
@@ -293,12 +294,16 @@ img.contactUs-image {
 }
 .contactUs-form form input[type="email"] {
   border: 0;
-  padding: 1.3rem;
+  padding: 1.3rem 1.3rem 1.3rem 2.5rem;
   width: 360px;
-  font-size: 15px;
+  font-size: 14px;
   border-radius: 14px;
   min-width: 250px;
+  color: #8d8d8d;
   box-shadow: 5px 10px 30px #e4d2c9;
+}
+.contactUs-form input::placeholder {
+  color: #8d8d8d;
 }
 .contactUs-form form button {
   position: absolute;
@@ -313,26 +318,70 @@ img.contactUs-image {
 .contactUs-form form button img {
   width: 23px;
 }
+.contactUs-form .message-icon {
+  position: absolute;
+  left: 12px;
+  width: 23px;
+  top: 20px;
+}
 
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 500px) {
+  /*mobile size*/
+  .destinations-container {
+    justify-content: center;
+  }
+  .destinations-title {
+    margin: 3rem auto 3.5rem;
+  }
+  .feature-items-container {
+    justify-content: center;
+    margin-top: -65px;
+  }
   .destination {
-    width: 100%;
+    width: 85%;
   }
 
-  .contactUs-form form input[type="email"] {
-    width: 270px;
-   
-  }
   .main-title {
-    margin: 0 auto;
     max-width: 460px;
-    transform: translateY(0%);
   }
-  .main-title h1 {
-    font-size: 46px;
-  }
+  
   .feature-item {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /*tablet size*/
+    .landing-page {
+      border-radius: 0 0 100px 100px;
+    }
+    .main-title h1 {
+      font-size: 40px;
+    }
+}
+@media  screen and (max-width: 860px) {
+  .contactUs{
+    flex-flow: column wrap;
+    align-items: center;
+  }
+  img.contactUs-image {
+    order: 1;
+    width: 245px;
+  }
+  .contactUs-form {
     width: 100%;
+    margin: 2rem 0;
+    order: 2;
+  }
+  .contactUs-form h2,
+  .contactUs-form p {
+    text-align: center;
+    width: 100%;
+  }
+  .contactUs-form form,
+  .contactUs-form form input[type="email"] {
+    width: 100% ;
+    min-width: 210px;
   }
 }
 

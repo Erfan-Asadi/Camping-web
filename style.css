@@ -1,35 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&display=swap');
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-
-.nav-line-bottom {
+body {
+  background-color: #faf4f2;
+}
+a{ 
+  text-decoration: none;
+}
+.landing-page {
+  width: 100%;
+  height: 100vh;
+  background-image: url("image/landing-page-background.jpg");
+  background-size: cover;
+  border-radius: 0 0 160px 160px ;
+}
+.landing-page header {
+  width: 100%;
   display: flex;
-list-style-type: none;
+  justify-content: space-between;
   flex-flow: row nowrap;
-  height: 60px;
-  border: 2px solid salmon;
+  padding: 2rem 6vw;
+}
+.landing-page nav ul{
+  display: flex;
+  list-style-type: none;
+}
+.landing-page nav ul li {
+  margin-left: 1.3rem;
+  font-family: 'Roboto',sans-serif;
+  font-weight: 300;
+}
+.landing-page a {
+  color: #d2d2d2;
+ }
+
+.header-link-group a {
+  font-family: 'Roboto',sans-serif;
+  font-weight: 400;
+}
+.header-link-group a:first-child {
+  margin-right: 16px;
+}
+.header-link-group a:last-child {
+  border: 1px solid #d2d2d2;
+  padding: 8px 18px;
+  border-radius: 24px;
+}
+
+.main-title {
   margin: 0 auto;
-  overflow: auto;
+  max-width: 460px;
+  transform: translateY(50%);
 }
-li {
-  min-width: 80px;
-  background-color: gainsboro;
-  margin: 0 4px;
-  font-weight: bold;
+.main-title h1 {
+  font-size: 64px;
+    font-family: 'Archivo';
+    font-weight: 900;
+    text-align: center;
+    color: #ffffff;
+    line-height: 1.2;
 }
-.about-tab-manup {
-  position: relative;
-  width: 400px;
+.main-title p {
+  color: white;
+    font-family: 'Roboto';
+    font-weight: 300;
+    /* font-size: 16px; */
+    text-align: center;
+    padding: 0 10px;
+    margin: 1rem 0;
 }
-.tns-controls button {
-  position: absolute;
-  top: 0;
-}
-.tns-controls button:nth-child(1) {
-  left: 0;
-}
-.tns-controls button:nth-child(2) {
-  right: 0;
+.main-title button {
+  margin: 0 auto;
+  background-color: #E76F51;
+  padding: 11px 40px;
+  display: block;
+  border: 0;
+  border-radius: 24px;
+  color: white;
+  font-family: 'Roboto',sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
 }

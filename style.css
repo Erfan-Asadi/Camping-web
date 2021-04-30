@@ -253,3 +253,86 @@ span.destination-price {
   background-color: #e76f51;
   color: white;
 }
+.contactUs {
+  width: 87%;
+  margin: 7rem auto 4rem;
+  border-radius: 18px;
+  background-color: #f8d9d2;
+  display: flex;
+  padding: 1.3rem;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;  
+
+}
+.contactUs-form {
+  width: 55%;
+  color: #3B3735;
+  margin: 2rem 2.4rem;
+}
+.contactUs-form h2 {
+  font-size: 2rem;
+  font-family: 'Archivo',sans-serif;
+  margin-bottom: .7rem;
+  font-weight: 900;
+
+}
+.contactUs-form p {
+  font-family: 'Roboto';
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    width: 85%;
+    line-height: 1.45;
+}
+img.contactUs-image {
+  width:300px;
+}
+.contactUs-form form {
+  position: relative;
+  width: fit-content;
+}
+.contactUs-form form input[type="email"] {
+  border: 0;
+  padding: 1.3rem;
+  width: 360px;
+  font-size: 15px;
+  border-radius: 14px;
+  min-width: 250px;
+  box-shadow: 5px 10px 30px #e4d2c9;
+}
+.contactUs-form form button {
+  position: absolute;
+  border: none;
+  top: 9px;
+  background-color: #e76f51;
+  border-radius: 17px;
+  padding: .7rem .6rem .77rem .7rem;
+  right: 9px;
+  box-shadow: 5px 10px 30px #eea795;
+}
+.contactUs-form form button img {
+  width: 23px;
+}
+
+@media screen and (max-width: 490px) {
+  .destination {
+    width: 100%;
+  }
+
+  .contactUs-form form input[type="email"] {
+    width: 270px;
+   
+  }
+  .main-title {
+    margin: 0 auto;
+    max-width: 460px;
+    transform: translateY(0%);
+  }
+  .main-title h1 {
+    font-size: 46px;
+  }
+  .feature-item {
+    width: 100%;
+  }
+}
+

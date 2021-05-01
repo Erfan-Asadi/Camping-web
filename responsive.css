@@ -1,0 +1,112 @@
+@media screen and (max-width: 500px) {
+    /*mobile size*/
+    .header-link-group a {
+      font-size: 15px;
+    }
+  
+    .header-link-group a:last-child {
+      padding: 6px 14px;
+    }
+    .destinations-container {
+      justify-content: center;
+    }
+    .destinations-title {
+      margin: 3rem auto 3.5rem;
+    }
+    .feature-items-container {
+      justify-content: center;
+      margin-top: -65px;
+    }
+    .destination {
+      width: 85%;
+    }
+  
+    .main-title {
+      max-width: 460px;
+    }
+    .main-title h1 {
+      font-size: 2.2rem !important;
+    }
+    .main-title button {
+      padding: 9px 31px;
+      font-size: 0.8rem;
+    }
+    .feature-item {
+      width: 80%;
+    }
+    footer {
+      border-radius:80px 80px 0 0;
+    }
+    .footer-item {
+      width: 48%;
+    }
+    .footer-item:first-child {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (min-width: 500px) and (max-width: 750px) {
+      .destination,
+      .feature-item {
+          width: 37%;
+      }
+      
+  }
+  @media screen and (max-width: 767px) {
+    /*tablet size*/
+  
+    .main-title h1 {
+      font-size: 40px;
+    }
+  }
+  @media screen and (max-width: 860px) {
+    .landing-page header {
+      z-index: 2;
+    }
+    .landing-page nav {
+      position: absolute;
+      top: 0;
+      right: -42%;
+    }
+    .landing-page {
+      border-radius: 0;
+    }
+    .landing-page nav ul {
+      background: #e76f51;
+      flex-flow: column nowrap;
+      align-items: center;
+      padding: 1.7rem;
+      height: 100vh;
+    }
+  
+    .landing-page nav ul li + li {
+      margin: 1.2rem 0 0;
+    }
+    .hamburger-btn {
+      display: block;
+    }
+  
+    .contactUs {
+      flex-flow: column wrap;
+      align-items: center;
+    }
+    img.contactUs-image {
+      order: 1;
+      width: 245px;
+    }
+    .contactUs-form {
+      width: 100%;
+      margin: 2rem 0;
+      order: 2;
+    }
+    .contactUs-form h2,
+    .contactUs-form p {
+      text-align: center;
+      width: 100%;
+    }
+    .contactUs-form form,
+    .contactUs-form form input[type="email"] {
+      width: 100%;
+      min-width: 210px;
+    }
+  }

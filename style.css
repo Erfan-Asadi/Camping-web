@@ -24,7 +24,8 @@ a {
   flex-flow: row wrap;
 }
 
-.landing-page::after {
+.landing-page::after ,
+.landing-page[data-clickable="true"] {
   content: "";
   top: 0;
   bottom: 0;
@@ -32,7 +33,10 @@ a {
   right: 0;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 0;
+}
+
+.landing-page[data-clickable="true"] {
+  z-index: 3;
 }
 .landing-page > * {
   position: relative;
@@ -46,7 +50,7 @@ a {
   padding: 2rem 6vw;
 }
 .landing-page nav {
-  transition: .2s linear 0s;
+  transition: 0.2s linear 0s;
 }
 .landing-page nav.expanded {
   right: 0;
@@ -57,7 +61,7 @@ a {
   flex-flow: row wrap;
   list-style-type: none;
 }
-.landing-page nav ul li +li {
+.landing-page nav ul li + li {
   margin-left: 1.3rem;
 }
 .landing-page nav ul li {
@@ -81,6 +85,42 @@ a {
   border-radius: 24px;
 }
 
+.hamburger-btn {
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  display: none;
+  background-color: white;
+  border-radius: 22px;
+  padding: 10px 12px;
+  margin-top: -15px;
+}
+.hamburger-btn:focus {
+  outline: none;
+}
+.hamburger-line {
+  width: 30px;
+  height: 3px;
+  margin: 5px 0;
+  border-radius: 18%;
+  background-color: #e76f51;
+  transform-origin: right;
+  transition: all 0.3s linear 0s;
+}
+
+.hamburger-btn.clicked .hamburger-line {
+  margin: 8px 0;
+}
+.hamburger-btn.clicked .hamburger-line.middle {
+  opacity: 0;
+}
+.hamburger-btn.clicked .hamburger-line.top {
+  transform: rotate(-45deg);
+}
+.hamburger-btn.clicked .hamburger-line.bottom {
+  transform: rotate(45deg);
+}
+
 .main-title {
   max-width: 460px;
   margin-bottom: 4rem;
@@ -99,7 +139,7 @@ a {
   font-weight: 300;
   text-align: center;
   padding: 0 10px;
-  margin: 1rem 0;
+  margin: 1.7rem 0;
 }
 .main-title button {
   margin: 0 auto;
@@ -258,7 +298,7 @@ span.destination-price {
   margin: 2rem auto;
   display: block;
   cursor: pointer;
-  transition: all .3s linear .05s;
+  transition: all 0.3s linear 0.05s;
 }
 .viewAll-btn:hover {
   background-color: #e76f51;
@@ -273,29 +313,28 @@ span.destination-price {
   padding: 1.3rem;
   flex-flow: row wrap;
   justify-content: space-between;
-  align-items: center;  
-
+  align-items: center;
 }
 .contactUs-form {
   width: 55%;
-  color: #3B3735;
-  margin: 2rem 0 2rem 2.4rem ;
+  color: #3b3735;
+  margin: 2rem 0 2rem 2.4rem;
 }
 .contactUs-form h2 {
   font-size: 2rem;
-  font-family: 'Archivo',sans-serif;
-  margin-bottom: .7rem;
+  font-family: "Archivo", sans-serif;
+  margin-bottom: 0.7rem;
   font-weight: 900;
 }
 .contactUs-form p {
-  font-family: 'Roboto';
-    font-weight: 400;
-    margin-bottom: 1.5rem;
-    width: 85%;
-    line-height: 1.45;
+  font-family: "Roboto";
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  width: 85%;
+  line-height: 1.45;
 }
 img.contactUs-image {
-  width:300px;
+  width: 300px;
 }
 .contactUs-form form {
   position: relative;
@@ -320,7 +359,7 @@ img.contactUs-image {
   top: 9px;
   background-color: #e76f51;
   border-radius: 17px;
-  padding: .7rem .6rem .77rem .7rem;
+  padding: 0.7rem 0.6rem 0.77rem 0.7rem;
   right: 9px;
   box-shadow: 5px 10px 30px #eea795;
 }
@@ -336,6 +375,13 @@ img.contactUs-image {
 
 @media screen and (max-width: 500px) {
   /*mobile size*/
+  .header-link-group a {
+    font-size: 15px;
+  }
+  
+  .header-link-group a:last-child {
+    padding: 6px 14px;
+  }
   .destinations-container {
     justify-content: center;
   }
@@ -353,7 +399,13 @@ img.contactUs-image {
   .main-title {
     max-width: 460px;
   }
-  
+  .main-title  h1 {
+    font-size: 2.2rem !important;
+}
+  .main-title button {
+    padding: 9px 31px;
+    font-size: .8rem;
+  }
   .feature-item {
     width: 80%;
   }
@@ -361,37 +413,38 @@ img.contactUs-image {
 
 @media screen and (max-width: 767px) {
   /*tablet size*/
-    .landing-page {
-      border-radius: 0 0 100px 100px;
-    }
-    .main-title h1 {
-      font-size: 40px;
-    }
-    
+  .landing-page {
+    border-radius: 0;
+  }
+  .main-title h1 {
+    font-size: 40px;
+  }
 }
-@media  screen and (max-width: 860px) {
+@media screen and (max-width: 860px) {
   .landing-page header {
     z-index: 2;
   }
-  .landing-page  nav {
+  .landing-page nav {
     position: absolute;
     top: 0;
     right: -42%;
   }
-  .landing-page  nav ul {
+  .landing-page nav ul {
     background: #e76f51;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     align-items: center;
     padding: 1.7rem;
     height: 100vh;
   }
-  
 
   .landing-page nav ul li + li {
-    margin: 1.45rem 0 0;
+    margin: 1.2rem 0 0;
+  }
+  .hamburger-btn {
+    display: block;
   }
 
-  .contactUs{
+  .contactUs {
     flex-flow: column wrap;
     align-items: center;
   }
@@ -411,8 +464,7 @@ img.contactUs-image {
   }
   .contactUs-form form,
   .contactUs-form form input[type="email"] {
-    width: 100% ;
+    width: 100%;
     min-width: 210px;
   }
 }
-

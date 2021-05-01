@@ -45,13 +45,22 @@ a {
   flex-flow: row nowrap;
   padding: 2rem 6vw;
 }
+.landing-page nav {
+  transition: .2s linear 0s;
+}
+.landing-page nav.expanded {
+  right: 0;
+}
+
 .landing-page nav ul {
   display: flex;
   flex-flow: row wrap;
   list-style-type: none;
 }
-.landing-page nav ul li {
+.landing-page nav ul li +li {
   margin-left: 1.3rem;
+}
+.landing-page nav ul li {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
 }
@@ -358,8 +367,30 @@ img.contactUs-image {
     .main-title h1 {
       font-size: 40px;
     }
+    
 }
 @media  screen and (max-width: 860px) {
+  .landing-page header {
+    z-index: 2;
+  }
+  .landing-page  nav {
+    position: absolute;
+    top: 0;
+    right: -42%;
+  }
+  .landing-page  nav ul {
+    background: #e76f51;
+    flex-flow: column wrap;
+    align-items: center;
+    padding: 1.7rem;
+    height: 100vh;
+  }
+  
+
+  .landing-page nav ul li + li {
+    margin: 1.45rem 0 0;
+  }
+
   .contactUs{
     flex-flow: column wrap;
     align-items: center;

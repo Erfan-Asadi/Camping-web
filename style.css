@@ -24,7 +24,12 @@ a {
   flex-flow: row wrap;
 }
 
-.landing-page::after  {
+.landing-page > * {
+  position: relative;
+  z-index: 1;
+}
+.landing-page::after,
+.landing-page__overlay {
   content: "";
   top: 0;
   bottom: 0;
@@ -33,12 +38,13 @@ a {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
 }
-
-
-.landing-page > * {
-  position: relative;
-  z-index: 1;
+.landing-page__overlay {
+  z-index: 2;
+  opacity: 0;
+  transition: .2s linear 0s;
 }
+
+
 .landing-page header {
   width: 100%;
   display: flex;
@@ -410,9 +416,7 @@ img.contactUs-image {
 
 @media screen and (max-width: 767px) {
   /*tablet size*/
-  .landing-page {
-    border-radius: 0;
-  }
+  
   .main-title h1 {
     font-size: 40px;
   }
@@ -425,6 +429,9 @@ img.contactUs-image {
     position: absolute;
     top: 0;
     right: -42%;
+  }
+  .landing-page {
+    border-radius: 0;
   }
   .landing-page nav ul {
     background: #e76f51;

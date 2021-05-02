@@ -288,6 +288,11 @@ span.destination-price {
   right: 12px;
   background-color: white;
   border-radius: 14px;
+  height: 39px;
+  cursor: pointer;
+}
+.image-container span img {
+  pointer-events: none;
 }
 .viewAll-btn {
   color: #e76f51;

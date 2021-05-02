@@ -27,5 +27,22 @@ $(document).ready(function () {
     }
     $('form').on('submit', check_input_empty);
 
+    let heartIcon_container = document.querySelectorAll('.image-container span');
+  
+    toggle_like_icon = (e) => {
+        let mySpan = e.target;
+        let mySpan_status = $(mySpan).hasClass('liked');
+        
+        if ( mySpan_status == false) {
+            $(mySpan).addClass('liked');
+            $(mySpan).find('img').attr('src','image/heart-fill-icon.svg');
+        } else {
+            $(mySpan).removeClass('liked')
+            $(mySpan).find('img').attr('src','image/heart-outline-icon.svg')
+           
+        }
+    }
+    $(heartIcon_container).on('click',toggle_like_icon);
+
 });
 

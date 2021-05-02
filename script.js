@@ -27,7 +27,7 @@ $(document).ready(function () {
 
     check_input_empty = (e) => {
         if ($(email_input).val() == '' || $(email_input).val().length == 0) {
-            alert('input is empty')
+            alert('Input is Empty!')
             e.preventDefault();
         }
     }
@@ -54,8 +54,7 @@ $(document).ready(function () {
     let arrowTop = $('.backToTop-btn');
 
     arrowTop.on('click', function () {
-
-        window.scrollTo(pageXOffset, 0);
+        window.scrollTo(0, 0);
         // after scrollTo, there will be a "scroll" event, so the arrow will hide automatically
     });
 
@@ -66,5 +65,39 @@ $(document).ready(function () {
             $(arrowTop).css('opacity', '0');
         }
     });
+
+
+    let destinations = document.querySelectorAll('.destination');
+    let dest_index = 0;
+    setInterval(() => {
+        $(destinations).eq(dest_index - 1).css('border-color', 'transparent');
+        $(destinations).eq(dest_index).css('border-color', '#e76f51');
+
+        if (dest_index == destinations.length - 1) {
+            dest_index = -1;
+        }
+        dest_index++;
+
+    }, 1400);
+
+
+    $('.landing-page-btn').click(() => {
+        window.scrollTo(0, 1000);
+    })
+
+
+
+    $('.destination').mouseenter(function () {
+        $(this).find('.image-container > img').css({ 'transform': 'scale(1.04)', 'cursor': 'pointer' })
+
+    })
+    $('.destination').mouseleave(function () {
+        $(this).find('.image-container > img').css('transform', 'scale(1)')
+
+    })
+
+
+
+
 });
 

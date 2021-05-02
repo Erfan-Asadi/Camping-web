@@ -1,13 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&display=swap");
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+html {
+  scroll-behavior: smooth;
+  
+}
 body {
   background-color: #f5e9e5;
-  scroll-behavior: smooth;
+}
+@keyframes click-me-btn {
+  0% {
+      transform: scale(.98);
+  }
+
+  30% {
+      transform: scale(1.02);
+  }
+
+  100% {
+      transform: scale(1);
+  }
+
 }
 a {
   text-decoration: none;
@@ -41,7 +59,7 @@ a {
   background-color: rgba(0, 0, 0, 0.5);
 }
 .landing-page__overlay {
-  z-index: 2;
+  z-index: 1;
   opacity: 0;
   transition: 0.2s linear 0s;
 }
@@ -156,7 +174,13 @@ a {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   cursor: pointer;
+  cursor: pointer;
+  animation: click-me-btn 1.3s ease 1s infinite both alternate-reverse;
 }
+.main-title button:hover {
+  animation: none;
+}
+
 .feature-items-container {
   width: 87%;
   z-index: 1;

@@ -7,6 +7,7 @@
 }
 body {
   background-color: #f5e9e5;
+  scroll-behavior: smooth;
 }
 a {
   text-decoration: none;
@@ -379,6 +380,20 @@ img.contactUs-image {
   left: 12px;
   width: 23px;
   top: 20px;
+}
+.backToTop-btn {
+  position: fixed;
+    right: 4vw;
+    z-index: 10;
+    bottom: 35px;
+    border: 0;
+    cursor: pointer;
+    box-shadow: 1px 5px 6px #eadeda;
+    background-color: white;
+    border-radius: 35%;
+    padding: .6rem .7rem;
+    transition: all .3s linear 0s;
+    opacity: 0;
 }
 footer {
   width: 100%;

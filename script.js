@@ -32,7 +32,7 @@ $(document).ready(function () {
     toggle_like_icon = (e) => {
         let mySpan = e.target;
         let mySpan_status = $(mySpan).hasClass('liked');
-        
+
         if ( mySpan_status == false) {
             $(mySpan).addClass('liked');
             $(mySpan).find('img').attr('src','image/heart-fill-icon.svg');
@@ -44,5 +44,20 @@ $(document).ready(function () {
     }
     $(heartIcon_container).on('click',toggle_like_icon);
 
+    
+    let arrowTop = $('.backToTop-btn');
+
+    arrowTop.on('click', function() {
+        window.scrollTo(pageXOffset, 0);
+        // after scrollTo, there will be a "scroll" event, so the arrow will hide automatically
+      });
+  
+      window.addEventListener('scroll', function() {
+          if (pageYOffset >= 400) {
+              $(arrowTop).css('opacity','1');
+        }  else {
+            $(arrowTop).css('opacity','0');
+          }
+      });
 });
 

@@ -288,6 +288,7 @@ section.destination {
   width: 100%;
   object-fit: cover;
   height: 100%;
+  transition: all .3s linear 0s;
 }
 .destination .readMore-btn {
   background-color: rgb(48, 48, 48, 0.13);

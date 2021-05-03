@@ -8,7 +8,7 @@ $(document).ready(function () {
     const email_input = $('#sendEmail-input');
 
     const destinations = document.querySelectorAll('.destination');
-    let dest_index = 0;
+
 
     const arrowTop = $('.backToTop-btn');
 
@@ -47,6 +47,154 @@ $(document).ready(function () {
 
         }
     }
+
+    
+    make_h3 = (title) => {
+        return `<h3> ${title} </h3>`;
+    }
+
+
+    make_imageContainer = (imagePath) => {
+        return (`
+        <div class="image-container">
+        <img src="${imagePath}" alt="destination" ">
+        <span>
+        <img src="image/heart-outline-icon.svg" alt="like-icon" class="like-icon">
+        </span>
+        </div> `);
+    }
+
+    make_destinationPrice = (price) => {
+        return ` <span class="destination-price">${price}kr/night</span> `;
+    }
+
+    make_destination_detail = (detail) => {
+        return ` <p> ${detail}</p> `;
+    }
+    make_destination_button = (value) => {
+        return `<button class="readMore-btn">${value}</button>`;
+    }
+
+    let destinations_information = [
+        {
+            imagePath: 'image/destination-1.png',
+            title: 'Red Lifeguard Stand',
+            price: 45,
+            detail: 'Book unique camping experiences on over 350,000 campsites.',
+            button: 'ReadMore'
+        },
+        {
+            imagePath: 'image/destination-4.png',
+            title: 'Trickle Creek Ranch',
+            price: 42,
+            detail: 'Book unique camping experiences on over 350,000 campsites.',
+            button: 'ReadMore'
+        },
+        {
+            imagePath: 'image/destination-5.png',
+            title: 'Red Lifeguard Stand',
+            price: 45,
+            detail: 'Book unique camping experiences on over 350,000 campsites.',
+            button: 'ReadMore'
+        },
+        {
+            imagePath: 'image/destination-3.png',
+            title: 'Trickle Creek Ranch',
+            price: 120,
+            detail: 'Book unique camping experiences on over 350,000 campsites.',
+            button: 'ReadMore'
+        },
+        {
+            imagePath: 'image/destination-7.png',
+            title: 'Red Lifeguard Stand',
+            price: 83,
+            detail: 'Book unique camping experiences on over 350,000 campsites.',
+            button: 'ReadMore'
+        },
+        {
+            imagePath: 'image/destination-2.png',
+            title: 'Trickle Creek Ranch',
+            price: 42,
+            detail: 'Book unique camping experiences on over 500,000 campsites.',
+            button: 'ReadMore'
+        },
+        {
+            imagePath: 'image/destination-1.png',
+            title: 'The Tree House',
+            price: 12,
+            detail: 'Book unique camping experiences on over 301,000 campsites.',
+            button: 'ReadMore'
+        },
+        {
+            imagePath: 'image/destination-6.png',
+            title: 'Kindred Spirits Cabin',
+            price: 73,
+            detail: 'Book unique camping experiences on over 300,000 campsites.',
+            button: 'ReadMore'
+        },
+        {
+            imagePath: 'image/destination-5.png',
+            title: 'The Tree House',
+            price: 39,
+            detail: 'Book unique camping experiences on over 100,000 campsites.',
+            button: 'ReadMore'
+        },
+        {
+            imagePath: 'image/destination-2.png',
+            title: 'Kindred Spirits Cabin',
+            price: 52,
+            detail: 'Book unique camping experiences on over 234,000 campsites.',
+            button: 'ReadMore'
+        },
+        {
+            imagePath: 'image/destination-7.png',
+            title: 'Kindred Spirits Cabin',
+            price: 50,
+            detail: 'Book unique camping experiences on over 234,000 campsites.',
+            button: 'ReadMore'
+        },
+        {
+            imagePath: 'image/destination-6.png',
+            title: 'Kindred Spirits Cabin',
+            price: 52,
+            detail: 'Book unique camping experiences on over 234,000 campsites.',
+            button: 'ReadMore'
+        },
+    ]
+
+    add_destination_items = () => {
+        for (let i = 0; i < destinations_information.length; ++i) {
+
+            let destination = `
+            <section class="destination">
+            ${make_imageContainer(destinations_information[i].imagePath)}
+            ${make_destinationPrice(destinations_information[i].price)}
+            ${make_h3(destinations_information[i].title)}
+            ${make_destination_detail(destinations_information[i].detail)}
+            ${make_destination_button(destinations_information[i].button)}
+            </section>        
+            `;
+
+            $('.destinations-container').append(destination)
+        }
+    }
+    add_destination_items();
+
+    let dest_index = 0;
+    setInterval(() => {
+
+        $('.destination').eq(dest_index - 1).css('border-color', 'transparent');
+        $('.destination').eq(dest_index).css('border-color', '#e76f51');
+
+        if (dest_index == $('.destination').length - 1) {
+            dest_index = -1;
+        }
+        dest_index++;
+
+    }, 1400);
+
+
+    // event listeners
     window.addEventListener('scroll', function () {
         if (pageYOffset >= 400) {
             $(arrowTop).css('opacity', '1');
@@ -54,78 +202,10 @@ $(document).ready(function () {
             $(arrowTop).css('opacity', '0');
         }
     });
-
-
-    let destination_list = ['Tehran', 'Shiraz', 'Isfahan'];
-    let destination_img_srcs = ['image/destination-1.png', 'image/destination-2.png', 'image/destination-3.png']
-    const likeIcon_src = "image/heart-outline-icon.svg";
-
-    function make_h3(destinationList = ['default value']) {
-        let formated_destinationList = destinationList.map((dest) => {
-            return `<h3> ${dest} </h3>`;
-        })
-        return formated_destinationList;
-    }
-
-
-    function make_imageContainer() {
-        let imageContainer_template = []
-        
-        for (let i = 0; i < destination_list.length; ++i) {
-            imageContainer_template.push(`
-                <div class="image-container">
-                    <img src="${destination_img_srcs[i]}" alt="destination" ">
-                    <span>
-                        <img src="${likeIcon_src}" alt="like-icon" class="like-icon">
-                    </span>
-                </div> `);           
-        }
-        return imageContainer_template;
-    }
-
-
-    const destination_price = ['36kr']
-    function make_destinationPrice() {
-        let prices_list = []
-        for (let i = 0; i < destination_list.length; ++i) {
-            prices_list.push(`
-            <span class="destination-price">${destination_price}/night</span>    
-            `);           
-        }
-        return prices_list ;
-    }
-    
-    function make_destination_detail() {
-        let dest_paragraphs = []
-        for (let i = 0; i < destination_list.length; ++i) {
-            dest_paragraphs.push(`
-            <p> Book unique camping experiences on over 300,000 campsites. </p>   
-            `);           
-        }
-        return dest_paragraphs ;
-    }
-    function make_destination_button() {
-        return `<button class="readMore-btn">Read More</button>` ;
-    }
-    destinations[0].insertAdjacentHTML('beforeend',make_destination_button())
-
-
-    setInterval(() => {
-        $(destinations).eq(dest_index - 1).css('border-color', 'transparent');
-        $(destinations).eq(dest_index).css('border-color', '#e76f51');
-
-        if (dest_index == destinations.length - 1) {
-            dest_index = -1;
-        }
-        dest_index++;
-
-    }, 1400);
-
-    // event listeners
     $(hamburger).on('click', showNavigation);
     $(landing_page_overlay).on('click', hideNavigation);
 
-    $(document.body).on('click',heartIcon_container, toggle_like_icon);
+    $(document.body).on('click', heartIcon_container, toggle_like_icon);
 
     $('form').on('submit', check_input_empty);
 

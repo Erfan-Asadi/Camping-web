@@ -263,7 +263,7 @@ footer a:hover {
   font-weight: 900;
   font-size: 1.3rem;
 }
-.filter-destinations button {
+.filter-destinations button.sendEmail-btn {
   font-size: 14px;
   padding: .4rem .6rem;
   border: 1px solid #e76f51;
@@ -273,6 +273,9 @@ footer a:hover {
   color: #e76f51;
   cursor: pointer;
   transition: all .3s linear 0s;
+}
+button.sendEmail-btn:disabled {
+  opacity: .6;
 }
 .filter-destinations button:hover, 
 .filter-destinations button.active {

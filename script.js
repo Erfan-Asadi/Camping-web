@@ -4,11 +4,8 @@ $(document).ready(function () {
     const navigation = $('.landing-page nav');
     const landing_page_overlay = $('.landing-page__overlay');
 
-    const heartIcon_container = document.querySelectorAll('.image-container span');
+   
     const email_input = $('#sendEmail-input');
-
-    const destinations = document.querySelectorAll('.destination');
-
 
     const arrowTop = $('.backToTop-btn');
 
@@ -79,7 +76,7 @@ $(document).ready(function () {
         {
             imagePath: 'image/destination-1.png',
             title: 'Red Lifeguard Stand',
-            price: 45,
+            price: 145,
             detail: 'Book unique camping experiences on over 350,000 campsites.',
             button: 'ReadMore'
         },
@@ -121,7 +118,7 @@ $(document).ready(function () {
         {
             imagePath: 'image/destination-1.png',
             title: 'The Tree House',
-            price: 12,
+            price: 22,
             detail: 'Book unique camping experiences on over 301,000 campsites.',
             button: 'ReadMore'
         },
@@ -205,7 +202,7 @@ $(document).ready(function () {
     $(hamburger).on('click', showNavigation);
     $(landing_page_overlay).on('click', hideNavigation);
 
-    $(document.body).on('click', heartIcon_container, toggle_like_icon);
+    $(document.body).on('click', '.image-container span', toggle_like_icon);
 
     $('form').on('submit', check_input_empty);
 

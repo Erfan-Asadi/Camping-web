@@ -251,6 +251,33 @@ footer a:hover {
 .destinations-title img {
   width: 70px;
 }
+.filter-destinations {
+  display: flex;
+  align-items: center;
+  margin: 2rem 1rem;
+}
+.filter-destinations .title {
+  font-family: 'Archivo';
+  font-weight: 900;
+  font-size: 1.3rem;
+  margin-right: 1rem;
+}
+.filter-destinations button {
+  font-size: 14px;
+  padding: .4rem .6rem;
+  border: 1px solid #e76f51;
+  border-radius: 14px;
+  background-color: transparent;
+  margin: 0 .5rem;
+  color: #e76f51;
+  cursor: pointer;
+  transition: all .3s linear 0s;
+}
+.filter-destinations button:hover, 
+.filter-destinations button.active {
+  background-color: #e76f51;
+  color: white;
+}
 .destinations-container {
   width: 87%;
   display: flex;

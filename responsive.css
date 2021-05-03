@@ -63,6 +63,7 @@
     .landing-page header {
       z-index: 2;
     }
+
     .landing-page nav {
       position: absolute;
       top: 0;
@@ -77,6 +78,9 @@
       align-items: center;
       padding: 1.7rem;
       height: 100vh;
+    }
+    .landing-page nav ul li a:hover {
+      color: black;
     }
   
     .landing-page nav ul li + li {

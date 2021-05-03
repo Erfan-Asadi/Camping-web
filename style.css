@@ -20,6 +20,7 @@ body {
 
   30% {
       transform: scale(1.02);
+      
   }
 
   100% {
@@ -162,6 +163,7 @@ footer a:hover {
   color: #ffffff;
   line-height: 1.2;
 }
+
 .main-title p {
   color: white;
   font-family: "Roboto", sans-serif;
@@ -263,7 +265,7 @@ footer a:hover {
   font-weight: 900;
   font-size: 1.3rem;
 }
-.filter-destinations button.sendEmail-btn {
+.filter-destinations button {
   font-size: 14px;
   padding: .4rem .6rem;
   border: 1px solid #e76f51;

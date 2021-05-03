@@ -61,6 +61,9 @@ $(document).ready(function () {
         <img src="image/heart-outline-icon.svg" alt="like-icon" class="like-icon">
         </span>
         </div> `);
+
+
+        
     }
 
     make_destinationPrice = (price) => { // اون باکس سفید رنگ قیمت روی مکان ها اینجا ایجاد میشه که آرگومانی که میفرستیم قیمتشه
@@ -254,6 +257,7 @@ $(document).ready(function () {
     }
     show_normal_destinations = (item)=> { // مکان هایی که قیمت بین 50 تا 100 رو دارند فقط نمایش داده میشن
         $(item).siblings().removeClass('active')
+        
         $(item).addClass('active')
         let normal_list = destinations_information.filter((dest) => {
            return  (50<= dest.price) && (dest.price < 100) ;

@@ -253,14 +253,15 @@ footer a:hover {
 }
 .filter-destinations {
   display: flex;
+  flex-flow: row wrap;
   align-items: center;
+  justify-content: center;
   margin: 2rem 1rem;
 }
 .filter-destinations .title {
   font-family: 'Archivo';
   font-weight: 900;
   font-size: 1.3rem;
-  margin-right: 1rem;
 }
 .filter-destinations button {
   font-size: 14px;
@@ -268,7 +269,7 @@ footer a:hover {
   border: 1px solid #e76f51;
   border-radius: 14px;
   background-color: transparent;
-  margin: 0 .5rem;
+  margin: .5rem 0 .5rem .5rem;
   color: #e76f51;
   cursor: pointer;
   transition: all .3s linear 0s;

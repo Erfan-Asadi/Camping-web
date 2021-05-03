@@ -159,23 +159,24 @@ $(document).ready(function () {
         },
     ]
 
-    add_destination_items = () => {
-        for (let i = 0; i < destinations_information.length; ++i) {
+    add_destination_items = (destination_array) => {
+        $('.destinations-container').html('');
+        for (let i = 0; i < destination_array.length; ++i) {
 
             let destination = `
             <section class="destination">
-            ${make_imageContainer(destinations_information[i].imagePath)}
-            ${make_destinationPrice(destinations_information[i].price)}
-            ${make_h3(destinations_information[i].title)}
-            ${make_destination_detail(destinations_information[i].detail)}
-            ${make_destination_button(destinations_information[i].button)}
+            ${make_imageContainer(destination_array[i].imagePath)}
+            ${make_destinationPrice(destination_array[i].price)}
+            ${make_h3(destination_array[i].title)}
+            ${make_destination_detail(destination_array[i].detail)}
+            ${make_destination_button(destination_array[i].button)}
             </section>        
             `;
 
-            $('.destinations-container').append(destination)
+            $('.destinations-container').append(destination);
         }
     }
-    add_destination_items();
+    add_destination_items(destinations_information);
 
     let dest_index = 0;
     setInterval(() => {
@@ -190,6 +191,45 @@ $(document).ready(function () {
 
     }, 1400);
 
+    show_cheap_destinations = (item)=> {
+        $(item).siblings().removeClass('active')
+        $(item).addClass('active')
+        let cheap_list = destinations_information.filter((dest) => {
+           return  dest.price < 50;
+        })   
+           
+        return cheap_list;
+    }
+    show_normal_destinations = (item)=> {
+        $(item).siblings().removeClass('active')
+        $(item).addClass('active')
+        let normal_list = destinations_information.filter((dest) => {
+           return  (50<= dest.price) && (dest.price < 100) ;
+        })   
+           
+        return normal_list;
+    }
+    show_expensive_destinations = (item)=> {
+         $(item).siblings().removeClass('active')
+         $(item).addClass('active')   
+        let expensive_list = destinations_information.filter((dest) => {
+           return  100<= dest.price  ;
+        })   
+           
+        return expensive_list;
+    }
+    show_all_destinations = (item)=> {
+         $(item).siblings().removeClass('active')
+         $(item).addClass('active')    
+           
+        return destinations_information;
+    }
+    
+    $('button.cheap').on('click',(e)=>  add_destination_items( show_cheap_destinations(e.target) ));
+    $('button.normal').on('click',(e)=>  add_destination_items( show_normal_destinations(e.target) ));
+    $('button.expensive').on('click',(e)=>  add_destination_items( show_expensive_destinations(e.target) ));
+    $('button.all').on('click',(e)=>  add_destination_items( show_all_destinations(e.target) ));
+   
 
     // event listeners
     window.addEventListener('scroll', function () {

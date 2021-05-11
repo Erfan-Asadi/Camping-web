@@ -17,7 +17,7 @@ $(document).ready(function () {
             'z-index': '2'
         });
     }
-    hideNavigation = () => {  // وقتی روی همبرگر میزنیم این تابع باعث بسته شدن منو میشه( درحالت موبایل)
+    hideNavigation = () => {  
         $(navigation).removeClass('expanded');
         $(landing_page_overlay).css({
             'opacity': '0',
@@ -25,13 +25,13 @@ $(document).ready(function () {
         });
     }
 
-    check_input_empty = (e) => { // این تابع چک میکنه که هنگام ارسال ایمیل ورودی خالی نباشه
+    check_input_empty = (e) => { 
         if ($(email_input).val() == '' || $(email_input).val().length == 0) {
             alert('Input is Empty!')
             e.preventDefault();
         }
     }
-    toggle_like_icon = (e) => { // روی آیتم های مکان با کلیک روی قلب این تابع باعث عوض شدن رنگ قلب میشه
+    toggle_like_icon = (e) => { 
         let mySpan = e.target;
         let mySpan_status = $(mySpan).hasClass('liked');
 
@@ -44,37 +44,6 @@ $(document).ready(function () {
 
         }
     }
-
-    
-    make_h3 = (title) => { // عنوان های هر آیتم مکان رو اینجا ایجاد میکنیم
-        return `<h3> ${title} </h3>`;
-    }
-
-
-    make_imageContainer = (imagePath) => { // عکس مکان و قلبی که روشه رو اینجا ایجاد میکنیم که آرگومان ورودی آدرس عکس هستش
-        return (`
-        <div class="image-container">
-        <img src="${imagePath}" alt="destination" ">
-        <span>
-        <img src="image/heart-outline-icon.svg" alt="like-icon" class="like-icon">
-        </span>
-        </div> `);
-
-
-        
-    }
-
-    make_destinationPrice = (price) => { // اون باکس سفید رنگ قیمت روی مکان ها اینجا ایجاد میشه که آرگومانی که میفرستیم قیمتشه
-        return ` <span class="destination-price">${price}kr/night</span> `;
-    }
-
-    make_destination_detail = (detail) => { // توضیحات چندخطی مکان ها اینجا ایجاد میشن
-        return ` <p> ${detail}</p> `;
-    }
-    make_destination_button = (value) => {
-        return `<button class="readMore-btn">${value}</button>`;
-    }
-
 
     function check_email(input) {
         // input should 'input type=email' that  passed to argument
@@ -112,172 +81,7 @@ $(document).ready(function () {
     // enable email checkers on those elements that hav this className
     $(document.body).on('keyup', '.checkable-email', (e) => check_email(e.target));
 
-    let destinations_information = [
-        {
-            imagePath: 'image/destination-1.png',
-            title: 'Red Lifeguard Stand',
-            price: 145,
-            detail: 'Book unique camping experiences on over 350,000 campsites.',
-            button: 'ReadMore'
-        },
-        {
-            imagePath: 'image/destination-4.png',
-            title: 'Trickle Creek Ranch',
-            price: 42,
-            detail: 'Book unique camping experiences on over 350,000 campsites.',
-            button: 'ReadMore'
-        },
-        {
-            imagePath: 'image/destination-5.png',
-            title: 'Red Lifeguard Stand',
-            price: 45,
-            detail: 'Book unique camping experiences on over 350,000 campsites.',
-            button: 'ReadMore'
-        },
-        {
-            imagePath: 'image/destination-3.png',
-            title: 'Trickle Creek Ranch',
-            price: 120,
-            detail: 'Book unique camping experiences on over 350,000 campsites.',
-            button: 'ReadMore'
-        },
-        {
-            imagePath: 'image/destination-7.png',
-            title: 'Red Lifeguard Stand',
-            price: 83,
-            detail: 'Book unique camping experiences on over 350,000 campsites.',
-            button: 'ReadMore'
-        },
-        {
-            imagePath: 'image/destination-2.png',
-            title: 'Trickle Creek Ranch',
-            price: 42,
-            detail: 'Book unique camping experiences on over 500,000 campsites.',
-            button: 'ReadMore'
-        },
-        {
-            imagePath: 'image/destination-1.png',
-            title: 'The Tree House',
-            price: 22,
-            detail: 'Book unique camping experiences on over 301,000 campsites.',
-            button: 'ReadMore'
-        },
-        {
-            imagePath: 'image/destination-6.png',
-            title: 'Kindred Spirits Cabin',
-            price: 73,
-            detail: 'Book unique camping experiences on over 300,000 campsites.',
-            button: 'ReadMore'
-        },
-        {
-            imagePath: 'image/destination-5.png',
-            title: 'The Tree House',
-            price: 39,
-            detail: 'Book unique camping experiences on over 100,000 campsites.',
-            button: 'ReadMore'
-        },
-        {
-            imagePath: 'image/destination-2.png',
-            title: 'Kindred Spirits Cabin',
-            price: 52,
-            detail: 'Book unique camping experiences on over 234,000 campsites.',
-            button: 'ReadMore'
-        },
-        {
-            imagePath: 'image/destination-7.png',
-            title: 'Kindred Spirits Cabin',
-            price: 50,
-            detail: 'Book unique camping experiences on over 234,000 campsites.',
-            button: 'ReadMore'
-        },
-        {
-            imagePath: 'image/destination-6.png',
-            title: 'Kindred Spirits Cabin',
-            price: 52,
-            detail: 'Book unique camping experiences on over 234,000 campsites.',
-            button: 'ReadMore'
-        },
-    ];
-
-    add_destination_items = (destination_array) => {
-        $('.destinations-container').html('');
-        for (let i = 0; i < destination_array.length; ++i) {
-
-            let destination = `
-            <section class="destination">
-            ${make_imageContainer(destination_array[i].imagePath)}
-            ${make_destinationPrice(destination_array[i].price)}
-            ${make_h3(destination_array[i].title)}
-            ${make_destination_detail(destination_array[i].detail)}
-            ${make_destination_button(destination_array[i].button)}
-            </section>        
-            `;
-
-            $('.destinations-container').append(destination); 
-        }
-    }
-    add_destination_items(destinations_information);
-
-    let dest_index = 0;
-    setInterval(() => {
-
-        $('.destination').eq(dest_index - 1).css('border-color', 'transparent');
-        $('.destination').eq(dest_index).css('border-color', '#e76f51');
-
-        if (dest_index == $('.destination').length - 1) { 
-            dest_index = -1;
-        }
-        dest_index++;
-
-    }, 1400);
-
-    show_cheap_destinations = (item)=> {
-        $(item).siblings().removeClass('active')
-        $(item).addClass('active')
-        let cheap_list = destinations_information.filter((dest) => {
-           return  dest.price < 50;
-        })   
-           
-        return cheap_list;
-    }
-    show_normal_destinations = (item)=> {
-        $(item).siblings().removeClass('active')
-        
-        $(item).addClass('active')
-        let normal_list = destinations_information.filter((dest) => {
-           return  (50<= dest.price) && (dest.price < 100) ;
-        })   
-           
-        return normal_list;
-    }
-    show_expensive_destinations = (item)=> {
-         $(item).siblings().removeClass('active')
-         $(item).addClass('active')   
-        let expensive_list = destinations_information.filter((dest) => {
-           return  100<= dest.price  ;
-        })   
-           
-        return expensive_list;
-    }
-    show_all_destinations = (item)=> {
-         $(item).siblings().removeClass('active')
-         $(item).addClass('active')    
-           
-        return destinations_information;
-    }
-    
-    
- 
     // event listeners
-
-    // events that run after click on one of filter buttons
-    $('button.cheap').on('click',(e)=>  add_destination_items( show_cheap_destinations(e.target) ));
-    $('button.normal').on('click',(e)=>  add_destination_items( show_normal_destinations(e.target) ));
-    $('button.expensive').on('click',(e)=>  add_destination_items( show_expensive_destinations(e.target) ));
-    $('button.all').on('click',(e)=>  add_destination_items( show_all_destinations(e.target) ));
-
-
-
     window.addEventListener('scroll', function () { 
         if (pageYOffset >= 400) {
             $(arrowTop).css('opacity', '1');
